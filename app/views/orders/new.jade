@@ -4,19 +4,24 @@ block content
   h1= title
 
   #user= user.email
+  #total $0.00
+
+  buton#add.button-border-primary Add Row
+
+  form#order(action='/orders', method='POST')
+    .menu-item
+      button.delete X
+      input.qty(type='number', name='qty', placeholder='Qty')
+      select.menu
+        option Select from Menu
+          each menu in menus
+            option= menu
+      select.dish(name='dishId')
+        option Select a Dish
+    button.button-border-primary Place Order
 
 
-  form#order
-    input(type='number', name='qty', placeholder='Enter Qty')
-    select.menu(name='menu')
-      option Select from Menu
-        each menu in menus
-          option= menu
-    select.dish(name='dish')
-      option Select a Dish
 
-  div
-    button#add Add Row
 
 block scripts
   script(src='/js/es6/compiled/orders.js')

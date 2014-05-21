@@ -7,7 +7,21 @@ html
     link(href='/css/buttons.css', rel='stylesheet')
     link(href='/less/app.css', rel='stylesheet')
   body
+
+    nav
+      .container
+          span
+            a(href='/' class="button button-border-primary") Home
+          span
+            a(href='/help' class="button button-border-primary") Help
+          span
+            a(href='/login' class="button button-border-primary") Login
+          span
+            a(href='/orders' class="button button-border-primary") orders
+
     block content
+
+
 
     script(src='/js/vendor/jquery-2.1.1.js')
     script(src='/js/vendor/lodash-2.4.1.js')
