@@ -1,0 +1,14 @@
+extends ../shared/template
+
+block content
+  h1= title
+
+  #email= user.email
+
+  #orders
+    each order in orders
+      .order
+        h1= order.date.toDateString()
+        h5 Cost: $#{order.totalCost.toFixed(2)}
+        h5 Calories: #{order.totalCals.toFixed(0)}
+        h5 Items ordered: #{order.meal.length}

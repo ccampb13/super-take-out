@@ -3,10 +3,11 @@ extends ../shared/template
 block content
   h1= title
 
-  #user= user.email
-  #total $0.00
+  #controls
+    #user= user.email
+    #total
 
-  buton#add.button-border-primary Add Row
+
 
   form#order(action='/orders', method='POST')
     .menu-item
@@ -18,6 +19,7 @@ block content
             option= menu
       select.dish(name='dishId')
         option Select a Dish
+    buton#add.button-border-primary Add Row
     button.button-border-primary Place Order
 
 

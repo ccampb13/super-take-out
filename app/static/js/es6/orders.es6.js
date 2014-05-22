@@ -48,7 +48,7 @@
 
   function add(){
     var item = $('form#order > .menu-item:first-child');
-    $('form#order').append(item.clone());
+    $('form#order').prepend(item.clone());
   }
 
 
@@ -56,7 +56,7 @@
     var menu = $(this).val();   //this represets the select drop down selected and .val() is required for this
     var next = $(this).next();
     ajax(`/dishes/${menu}`, 'get', null, html=>{
-      next.empty().prepend(html);
+      next.empty().append(html);
     });
   }
 

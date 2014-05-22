@@ -35,13 +35,13 @@
   }
   function add() {
     var item = $('form#order > .menu-item:first-child');
-    $('form#order').append(item.clone());
+    $('form#order').prepend(item.clone());
   }
   function getMenu() {
     var menu = $(this).val();
     var next = $(this).next();
     ajax(("/dishes/" + menu), 'get', null, (function(html) {
-      next.empty().prepend(html);
+      next.empty().append(html);
     }));
   }
 })();

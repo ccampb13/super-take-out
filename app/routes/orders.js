@@ -1,19 +1,26 @@
 'use strict';
 
-var traceur = require('traceur');  //since we are working with ES6
+var traceur = require('traceur');
 var Dish = traceur.require(__dirname + '/../models/dish.js');
 var User = traceur.require(__dirname + '/../models/user.js');
+var Order = traceur.require(__dirname + '/../models/order.js');
 
 exports.new = (req, res)=>{
   Dish.menu(menus=>{
     User.findByUserId(req.session.userId, user=>{
-      res.render('orders/new', {user: user, menus: menus, title: 'Order Food'});   //route/function
+      res.render('orders/new', {user:user, menus: menus, title: 'Order Food'});
     });
-
   });
 };
 
 exports.create = (req, res)=>{
-  console.log('user-id');
-  console.log(req.session.userId);
+  Order.create(req.session.userId, req.body, ()=>res.redirect('/orders/history'));
+};
+
+exports.history = (req, res)=>{
+  User.findByUserId(req.session.userId, user=>{
+    Order.findAllByUserId(req.session.userId, orders=>{
+      res.render('orders/history', {orders:orders, user:user, title:'Order History'});
+    });
+  });
 };
