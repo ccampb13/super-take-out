@@ -33,9 +33,10 @@
     }
     e.preventDefault();
   }
-  function add() {
+  function add(e) {
     var item = $('form#order > .menu-item:first-child');
     $('form#order').prepend(item.clone());
+    e.preventDefault();
   }
   function getMenu() {
     var menu = $(this).val();

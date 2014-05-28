@@ -12,7 +12,7 @@ block content
   form#order(action='/orders', method='POST')
     .menu-item
       button.delete X
-      input.qty(type='number', name='qty', placeholder='Qty')
+      input.qty(type='number', name='qty', required='required' placeholder='Qty')
       select.menu
         option Select from Menu
           each menu in menus

@@ -4,6 +4,6 @@ block content
   h1= title
 
   form(method='POST', action='/login')
-    input(type='email', name='email', autofocus=true, placeholder='Email')
-    input(type='password', name='password', placeholder='Password')
+    input(type='email', name='email', autofocus=true, required='required', placeholder='Email')
+    input(type='password', name='password', required='required' placeholder='Password')
     button Authenticate
